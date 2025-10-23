@@ -1,27 +1,42 @@
 ---
 const arrayCards = [
   {
-    title: '',
-    canvaWeb: '',
-    localImage: '/assets/.avif',
+    title: 'BlendBackground',
+    canvaWeb:
+      'https://www.canva.com/design/DAG2n-2OuBk/nU7nnQF_S6Ai2eupuhbFFA/view?utm_content=DAG2n-2OuBk&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=ha3bfe6b554',
+    localImage: '/assets/BlendBackground.avif',
     id: '01'
   },
   {
-    title: '',
-    canvaWeb: '',
-    localImage: '/assets/.avif',
+    title: 'Simple Video',
+    canvaWeb:
+      'https://www.canva.com/design/DAG2n6nBGII/OSXYw67_kYZA-i-5u8z-6g/view?utm_content=DAG2n6nBGII&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he37c90bad6',
+    localImage: '/assets/SimpleVideo.avif',
     id: '02'
+  },
+  {
+    title: 'Concept Map',
+    canvaWeb: 'https://www.canva.com/design/DAG2n3B3EBM/_sx5e32Z2b_3eOn9Qz350g/view?utm_content=DAG2n3B3EBM&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h5129bb0d68',
+    localImage: '/assets/ConceptMap.avif',
+    id: '03'
+  },
+  {
+    title: 'Synoptic Table',
+    canvaWeb:
+      'https://www.canva.com/design/DAG2n7oBg5A/dId9d62G6LgZCmFAYVTR9g/view?utm_content=DAG2n7oBg5A&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h73417441f8',
+    localImage: '/assets/SynopticTable.avif',
+    id: '04'
   },
   {
     title: '',
     canvaWeb: '',
     localImage: '/assets/.avif',
     id: '20'
-  },
+  }
 ];
 ---
 
-<section class="am-container-cards">
+<section class='am-container-cards'>
   {
     arrayCards.map(({ id, localImage, canvaWeb, title }) => (
       <aside class='card' />
