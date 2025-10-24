@@ -1,4 +1,7 @@
 ---
+import { baseUrl } from '@/utils/functions';
+const logo = baseUrl('/assets/canva.gif');
+
 const arrayCards = [
   {
     title: 'BlendBackground',
@@ -142,21 +145,97 @@ const arrayCards = [
 ];
 ---
 
-<section class='am-container-cards'>
-  {
-    arrayCards.map(({ id, localImage, canvaWeb, title }) => (
-      <aside class='card' />
-    ))
-  }
-</section>
+<main class='am-container'>
+  <h1>
+    20 Designs With <img src={logo} alt='Logo' />
+  </h1>
+  <section class='am-slider'>
+    {
+      arrayCards.map(({ id, localImage, canvaWeb, title }, i) => (
+        <a
+          title={title}
+          class='container-img'
+          style={`--i: ${i + 1}`}
+          href={canvaWeb}
+          target='_blank'
+        >
+          <img src={baseUrl(localImage)} class='am-img' />
+        </a>
+      ))
+    }
+  </section>
+</main>
 
 <style>
-  .am-container-cards {
-    min-height: 100vh;
-    display: grid;
-    padding: 2.2vmax;
-    gap: 2.2vmax;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(17vmax, 1fr));
+  h1 {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5vmax;
+    text-align: center;
+    padding: 2vmax;
+    text-wrap: balance;
+    color: transparent;
+    font-style: italic;
+    background-image: linear-gradient(to left, #13a9d6, #5a5ae3);
+    background-clip: text;
+    letter-spacing: 0.3vmax;
+
+    img {
+      width: 20vmax;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8vmax;
+    }
+  }
+
+  .am-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    place-content: center;
+    transform-style: preserve-3d;
+    perspective: 78.13vmax;
+    overflow: hidden;
+  }
+
+  .am-slider {
+    width: 22.53vmax;
+    --h: 13.02vmax;
+    height: var(--h);
+    position: relative;
+    transform-style: preserve-3d;
+
+    .container-img {
+      transform: translateY(15vmax) scaleX(-1) rotateY(calc(var(--i) * 18deg))
+        translateZ(90vmax);
+      outline: 0.2vmax solid #fff;
+      cursor: pointer;
+    }
+
+    .container-img,
+    .am-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .am-img {
+      object-fit: cover;
+    }
   }
 </style>
+
+<script>
+  import { $ } from '@/utils/functions';
+  const $container = $<HTMLElement>('.am-slider');
+
+  document.addEventListener('mousemove', e => {
+    const x = e.clientX / 4;
+    $container.style.transform = `rotateY(${x}deg)`;
+  });
+</script>
