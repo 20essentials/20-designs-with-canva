@@ -1,17 +1,18 @@
 ---
 import { baseUrl } from '@/utils/functions';
-const logo = baseUrl('/assets/css-logo.svg');
+const logo = baseUrl('/assets/canva.gif');
 ---
 
-<section class="am-hero">
+<section class='am-hero'>
   <h1>
-    20 PROJECTS WITH CSS <img src={logo} alt='Logo' />
+    20 PROJECTS WITH <img src={logo} alt='Logo' />
   </h1>
 </section>
 <style>
   .am-hero {
     height: 100vh;
     position: relative;
+    pointer-events: none;
   }
 
   h1 {
@@ -21,14 +22,19 @@ const logo = baseUrl('/assets/css-logo.svg');
     transform: translate(-50%, -50%);
     font-size: 5vmax;
     text-align: center;
+    padding: 2vmax;
     text-wrap: balance;
     color: transparent;
-    background-image: var(--gradient);
+    background-image: linear-gradient(to left, #13a9d6, #5a5ae3);
     background-clip: text;
+    letter-spacing: 0.3vmax;
 
     img {
-      width: 4vmax;
-      transform: translateY(0.3vmax);
+      width: 20vmax;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8vmax;
     }
   }
 </style>
